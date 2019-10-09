@@ -69,14 +69,14 @@ class Prpcrypt
 
     public function encrypt($input)
     {
-        $data = openssl_encrypt($input, 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA,'00000000000000000000000000000000');
+        $data = openssl_encrypt($input, 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA,'0000000000000000');
         $data = base64_encode($data);
         return $data;
     }
 
     public function decrypt($input)
     {
-        $decrypted = openssl_decrypt(base64_decode($input), 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA,'00000000000000000000000000000000');
+        $decrypted = openssl_decrypt(base64_decode($input), 'AES-256-CBC', $this->key, OPENSSL_RAW_DATA,'0000000000000000');
         return $decrypted;
     }
 
